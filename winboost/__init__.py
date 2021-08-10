@@ -1,16 +1,27 @@
 import win32com.shell.shell as shell
-import os
+import subprocess
+
+
 
 def go():
-    commands = 'del C:\Windows\Prefetch\*.* /Q'
+    try:
+        pObj = subprocess.Popen('del /q/f/s %TEMP%\*', shell=True, stdout = subprocess.PIPE, stderr= subprocess.PIPE)
+        rTup = pObj.communicate()
+        rCod = pObj.returncode
 
-    shell.ShellExecuteEx(lpVerb='runas', lpFile='cmd.exe', lpParameters='/c '+commands)
+        commands = 'del C:\Windows\Prefetch\*.* /Q'
+        shell.ShellExecuteEx(lpVerb='runas', lpFile='cmd.exe', lpParameters='/c '+commands)
 
-    #For clear TEMP
-    os.system("del /q/f/s %TEMP%\*")
+        print(""" 
 
-    #For clear TEMP
-    os.system("del /q/f/s TEMP\*")
+░██╗░░░░░░░██╗██╗███╗░░██╗░░░░░░██████╗░░█████╗░░█████╗░░██████╗████████╗███████╗██████╗░
+░██║░░██╗░░██║██║████╗░██║░░░░░░██╔══██╗██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗
+░╚██╗████╗██╔╝██║██╔██╗██║█████╗██████╦╝██║░░██║██║░░██║╚█████╗░░░░██║░░░█████╗░░██║░░██║
+░░████╔═████║░██║██║╚████║╚════╝██╔══██╗██║░░██║██║░░██║░╚═══██╗░░░██║░░░██╔══╝░░██║░░██║
+░░╚██╔╝░╚██╔╝░██║██║░╚███║░░░░░░██████╦╝╚█████╔╝╚█████╔╝██████╔╝░░░██║░░░███████╗██████╔╝
+░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚══╝░░░░░░╚═════╝░░╚════╝░░╚════╝░╚═════╝░░░░╚═╝░░░╚══════╝╚═════╝░
+            """)
 
-    #For DISK CLEANER
-    os.system("cleanmgr.exe")
+        
+    except:
+        pass
