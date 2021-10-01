@@ -10,13 +10,12 @@ setup(
     name = 'winboost', ###################################
     packages = setuptools.find_packages(),
 
-    version = '1.0',
+    version = '2.3',
     license='MIT',
     description = 'WinBoost: Boost your windows system',
     author = 'Smit Parmar, Sanket Jethava, Dhiraj Beri',
     author_email = 'smitraj333@gmail.com, sanketjethava@gmail.com, dhirajberi.official@gmail.com', #Any valing email address
-    url = 'https://github.com/cyborg7898/Geet-Song-Downloader-', #Github link
-    download_url = 'https://github.com/Ankit404butfound/awesomepy/archive/1.0.tar.gz',#No need to change
+    url = 'https://github.com/cyborg7898/WinBoost', #Github link
     keywords = ['get_url', 'download'],
     install_requires=[],
     include_package_data=True,
